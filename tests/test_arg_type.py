@@ -79,12 +79,12 @@ def test_bool(factory):
 
     @factory
     class TestStoreFalse:
-        store_false: bool = True
+        default_true: bool = True
 
     args = parse_test(TestStoreFalse, [])
-    assert args.store_false
-    args = parse_test(TestStoreFalse, ["--store-false"])
-    assert not args.store_false
+    assert args.default_true
+    args = parse_test(TestStoreFalse, ["--no-default-true"])
+    assert not args.default_true
 
 
 def test_str(factory):
